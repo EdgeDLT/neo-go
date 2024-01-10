@@ -3,6 +3,7 @@ package network
 import (
 	"context"
 	"crypto/rand"
+	"encoding/base64"
 	"encoding/binary"
 	"errors"
 	"fmt"
@@ -1180,7 +1181,8 @@ func (s *Server) RelayP2PNotaryRequest(r *payload.P2PNotaryRequest) error {
 	if err == nil {
 		s.broadcastP2PNotaryRequestPayload(nil, r)
 	} else {
-		s.log.Info("p2p request", zap.Error(err))
+		b, _ := r.Bytes()
+		s.log.Info("p2p request", zap.Error(err), zap.String("payload", base64.StdEncoding.EncodeToString(b)))
 	}
 	return err
 }
