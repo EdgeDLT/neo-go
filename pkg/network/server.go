@@ -1179,6 +1179,8 @@ func (s *Server) RelayP2PNotaryRequest(r *payload.P2PNotaryRequest) error {
 	err := s.verifyAndPoolNotaryRequest(r)
 	if err == nil {
 		s.broadcastP2PNotaryRequestPayload(nil, r)
+	} else {
+		s.log.Info("p2p request", zap.Error(err))
 	}
 	return err
 }
