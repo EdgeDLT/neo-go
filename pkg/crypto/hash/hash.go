@@ -6,6 +6,7 @@ import (
 
 	"github.com/nspcc-dev/neo-go/pkg/util"
 	"golang.org/x/crypto/ripemd160" //nolint:staticcheck // SA1019: package golang.org/x/crypto/ripemd160 is deprecated
+	"golang.org/x/crypto/sha3"
 )
 
 // Hashable represents an object which can be hashed. Usually, these objects
@@ -43,6 +44,17 @@ func DoubleSha256(data []byte) util.Uint256 {
 
 	h1 := Sha256(data)
 	hash = Sha256(h1.BytesBE())
+	return hash
+}
+
+// Keccak256 hashes the incoming byte slice using the
+// keccak256 algorithm.
+func Keccak256(data []byte) util.Uint256 {
+	var hash util.Uint256
+	hasher := sha3.NewLegacyKeccak256() // TODO: @roman-khimov, can we allow to replace it with New256? I don't think we ever need non-standard padding support.
+	_, _ = hasher.Write(data)
+
+	hasher.Sum(hash[:0])
 	return hash
 }
 

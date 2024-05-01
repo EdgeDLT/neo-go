@@ -50,6 +50,16 @@ func TestHash160(t *testing.T) {
 	assert.Equal(t, expected, actual)
 }
 
+func TestKeccak256(t *testing.T) {
+	input := []byte("hello")
+	data := Keccak256(input)
+
+	expected := "1c8aff950685c2ed4bc3174f3472287b56d9517b9c948127319a09a7a36deac8"
+	actual := hex.EncodeToString(data.BytesBE())
+
+	assert.Equal(t, expected, actual)
+}
+
 func TestChecksum(t *testing.T) {
 	testCases := []struct {
 		data []byte
