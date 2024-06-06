@@ -39,7 +39,7 @@ func TestFixed8_Fixed8(t *testing.T) {
 func TestFixed8Flag_String(t *testing.T) {
 	flag := Fixed8Flag{
 		Name:  "myFlag",
-		Usage: "Gas amount",
+		Usage: "gas amount",
 	}
 
 	require.Equal(t, "--myFlag value\tGas amount", flag.String())

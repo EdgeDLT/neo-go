@@ -30,44 +30,44 @@ func NewCommands() []cli.Command {
 	queryTxFlags := append([]cli.Flag{
 		cli.BoolFlag{
 			Name:  "verbose, v",
-			Usage: "Output full tx info and execution logs",
+			Usage: "output full tx info and execution logs",
 		},
 	}, options.RPC...)
 	return []cli.Command{{
 		Name:  "query",
-		Usage: "Query data from RPC node",
+		Usage: "query data from RPC node",
 		Subcommands: []cli.Command{
 			{
 				Name:      "candidates",
-				Usage:     "Get candidates and votes",
+				Usage:     "get candidates and votes",
 				UsageText: "neo-go query candidates -r endpoint [-s timeout]",
 				Action:    queryCandidates,
 				Flags:     options.RPC,
 			},
 			{
 				Name:      "committee",
-				Usage:     "Get committee list",
+				Usage:     "get committee list",
 				UsageText: "neo-go query committee -r endpoint [-s timeout]",
 				Action:    queryCommittee,
 				Flags:     options.RPC,
 			},
 			{
 				Name:      "height",
-				Usage:     "Get node height",
+				Usage:     "get node height",
 				UsageText: "neo-go query height -r endpoint [-s timeout]",
 				Action:    queryHeight,
 				Flags:     options.RPC,
 			},
 			{
 				Name:      "tx",
-				Usage:     "Query transaction status",
+				Usage:     "query transaction status",
 				UsageText: "neo-go query tx <hash> -r endpoint [-s timeout] [-v]",
 				Action:    queryTx,
 				Flags:     queryTxFlags,
 			},
 			{
 				Name:      "voter",
-				Usage:     "Print NEO holder account state",
+				Usage:     "print NEO holder account state",
 				UsageText: "neo-go query voter <address> -r endpoint [-s timeout]",
 				Action:    queryVoter,
 				Flags:     options.RPC,

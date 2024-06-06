@@ -30,11 +30,11 @@ func NewCommands() []cli.Command {
 	return []cli.Command{
 		{
 			Name:  "util",
-			Usage: "Various helper commands",
+			Usage: "various helper commands",
 			Subcommands: []cli.Command{
 				{
 					Name:  "convert",
-					Usage: "Convert provided argument into other possible formats",
+					Usage: "convert provided argument into other possible formats",
 					UsageText: `convert <arg>
 
 <arg> is an argument which is tried to be interpreted as an item of different types
@@ -43,7 +43,7 @@ func NewCommands() []cli.Command {
 				},
 				{
 					Name:      "sendtx",
-					Usage:     "Send complete transaction stored in a context file",
+					Usage:     "send complete transaction stored in a context file",
 					UsageText: "sendtx [-r <endpoint>] <file.in> [--await]",
 					Description: `Sends the transaction from the given context file to the given RPC node if it's
    completely signed and ready. This command expects a ContractParametersContext
@@ -56,7 +56,7 @@ func NewCommands() []cli.Command {
 				},
 				{
 					Name:      "canceltx",
-					Usage:     "Cancel transaction by sending conflicting transaction",
+					Usage:     "cancel transaction by sending conflicting transaction",
 					UsageText: "canceltx <txid> -r <endpoint> --wallet <wallet> [--account <account>] [--wallet-config <path>] [--gas <gas>] [--await]",
 					Description: `Aims to prevent a transaction from being added to the blockchain by dispatching a more 
    prioritized conflicting transaction to the specified RPC node. The input for this command should 
@@ -76,7 +76,7 @@ func NewCommands() []cli.Command {
 				},
 				{
 					Name:      "txdump",
-					Usage:     "Dump transaction stored in file",
+					Usage:     "dump transaction stored in file",
 					UsageText: "txdump [-r <endpoint>] <file.in>",
 					Action:    txDump,
 					Flags:     txDumpFlags,
@@ -89,7 +89,7 @@ func NewCommands() []cli.Command {
 				},
 				{
 					Name:      "ops",
-					Usage:     "Pretty-print VM opcodes of the given base64- or hex- encoded script (base64 is checked first). If the input file is specified, then the script is taken from the file.",
+					Usage:     "pretty-print VM opcodes of the given base64- or hex- encoded script (base64 is checked first). If the input file is specified, then the script is taken from the file.",
 					UsageText: "ops <base64/hex-encoded script> [-i path-to-file] [--hex]",
 					Action:    handleOps,
 					Flags: []cli.Flag{

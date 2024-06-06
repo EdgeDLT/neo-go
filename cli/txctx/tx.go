@@ -38,7 +38,7 @@ var (
 	// ForceFlag is a flag used to force transaction send.
 	ForceFlag = cli.BoolFlag{
 		Name:  "force",
-		Usage: "Do not ask for a confirmation (and ignore errors)",
+		Usage: "do not ask for a confirmation (and ignore errors)",
 	}
 	// AwaitFlag is a flag used to wait for the transaction to be included in a block.
 	AwaitFlag = cli.BoolFlag{

@@ -16,21 +16,21 @@ import (
 var generatorFlags = []cli.Flag{
 	cli.StringFlag{
 		Name:  "config, c",
-		Usage: "Configuration file to use",
+		Usage: "configuration file to use",
 	},
 	cli.StringFlag{
 		Name:     "manifest, m",
 		Required: true,
-		Usage:    "Read contract manifest (*.manifest.json) file",
+		Usage:    "read contract manifest (*.manifest.json) file",
 	},
 	cli.StringFlag{
 		Name:     "out, o",
 		Required: true,
-		Usage:    "Output of the compiled wrapper",
+		Usage:    "output of the compiled wrapper",
 	},
 	cli.StringFlag{
 		Name:  "hash",
-		Usage: "Smart-contract hash. If not passed, the wrapper will be designed for dynamic hash usage",
+		Usage: "smart-contract hash. If not passed, the wrapper will be designed for dynamic hash usage",
 	},
 }
 

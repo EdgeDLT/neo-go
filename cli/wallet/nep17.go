@@ -41,7 +41,7 @@ type transferTarget struct {
 var (
 	tokenFlag = cli.StringFlag{
 		Name:  "token",
-		Usage: "Token to use (hash or name (for NEO/GAS or imported tokens))",
+		Usage: "token to use (hash or name (for NEO/GAS or imported tokens))",
 	}
 	baseBalanceFlags = []cli.Flag{
 		walletPathFlag,
@@ -49,7 +49,7 @@ var (
 		tokenFlag,
 		flags.AddressFlag{
 			Name:  "address, a",
-			Usage: "Address to use",
+			Usage: "address to use",
 		},
 	}
 	importFlags = append([]cli.Flag{
@@ -57,7 +57,7 @@ var (
 		walletConfigFlag,
 		flags.AddressFlag{
 			Name:  "token",
-			Usage: "Token contract address or hash in LE",
+			Usage: "token contract address or hash in LE",
 		},
 	}, options.RPC...)
 	baseTransferFlags = []cli.Flag{
@@ -73,7 +73,7 @@ var (
 		txctx.AwaitFlag,
 		cli.StringFlag{
 			Name:  "amount",
-			Usage: "Amount of asset to send",
+			Usage: "amount of asset to send",
 		},
 	}
 	multiTransferFlags = append([]cli.Flag{

@@ -55,7 +55,7 @@ func NewCommands() []cli.Command {
 		},
 		cli.StringFlag{
 			Name:  "out, o",
-			Usage: "Output file (stdout if not given)",
+			Usage: "output file (stdout if not given)",
 		},
 	)
 	var cfgCountInFlags = make([]cli.Flag, len(cfgWithCountFlags))
@@ -63,7 +63,7 @@ func NewCommands() []cli.Command {
 	cfgCountInFlags = append(cfgCountInFlags,
 		cli.StringFlag{
 			Name:  "in, i",
-			Usage: "Input file (stdin if not given)",
+			Usage: "input file (stdin if not given)",
 		},
 		cli.StringFlag{
 			Name:  "dump",
@@ -78,7 +78,7 @@ func NewCommands() []cli.Command {
 	copy(cfgHeightFlags, cfgFlags)
 	cfgHeightFlags[len(cfgHeightFlags)-1] = cli.UintFlag{
 		Name:     "height",
-		Usage:    "Height of the state to reset DB to",
+		Usage:    "height of the state to reset DB to",
 		Required: true,
 	}
 	return []cli.Command{

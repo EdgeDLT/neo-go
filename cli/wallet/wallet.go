@@ -49,11 +49,11 @@ var (
 var (
 	walletPathFlag = cli.StringFlag{
 		Name:  "wallet, w",
-		Usage: "Path to the wallet file ('-' to read from stdin); conflicts with --wallet-config flag.",
+		Usage: "path to the wallet file ('-' to read from stdin); conflicts with --wallet-config flag.",
 	}
 	walletConfigFlag = cli.StringFlag{
 		Name:  "wallet-config",
-		Usage: "Path to the wallet config file; conflicts with --wallet flag.",
+		Usage: "path to the wallet config file; conflicts with --wallet flag.",
 	}
 	wifFlag = cli.StringFlag{
 		Name:  "wif",
@@ -61,7 +61,7 @@ var (
 	}
 	decryptFlag = cli.BoolFlag{
 		Name:  "decrypt, d",
-		Usage: "Decrypt encrypted keys.",
+		Usage: "decrypt encrypted keys.",
 	}
 	inFlag = cli.StringFlag{
 		Name:  "in",
@@ -69,11 +69,11 @@ var (
 	}
 	fromAddrFlag = flags.AddressFlag{
 		Name:  "from",
-		Usage: "Address to send an asset from",
+		Usage: "address to send an asset from",
 	}
 	toAddrFlag = flags.AddressFlag{
 		Name:  "to",
-		Usage: "Address to send an asset to",
+		Usage: "address to send an asset to",
 	}
 )
 
@@ -89,7 +89,7 @@ func NewCommands() []cli.Command {
 		txctx.AwaitFlag,
 		flags.AddressFlag{
 			Name:  "address, a",
-			Usage: "Address to claim GAS for",
+			Usage: "address to claim GAS for",
 		},
 	}
 	claimFlags = append(claimFlags, options.RPC...)
@@ -101,7 +101,7 @@ func NewCommands() []cli.Command {
 		inFlag,
 		flags.AddressFlag{
 			Name:  "address, a",
-			Usage: "Address to use",
+			Usage: "address to use",
 		},
 	}
 	signFlags = append(signFlags, options.RPC...)
@@ -126,7 +126,7 @@ func NewCommands() []cli.Command {
 					walletConfigFlag,
 					cli.BoolFlag{
 						Name:  "account, a",
-						Usage: "Create a new account",
+						Usage: "create a new account",
 					},
 				},
 			},
@@ -225,11 +225,11 @@ func NewCommands() []cli.Command {
 					wifFlag,
 					cli.StringFlag{
 						Name:  "name, n",
-						Usage: "Optional account name",
+						Usage: "optional account name",
 					},
 					cli.StringFlag{
 						Name:  "contract",
-						Usage: "Verification script for custom contracts",
+						Usage: "verification script for custom contracts",
 					},
 				},
 			},
@@ -252,11 +252,11 @@ func NewCommands() []cli.Command {
 					wifFlag,
 					cli.StringFlag{
 						Name:  "name, n",
-						Usage: "Optional account name",
+						Usage: "optional account name",
 					},
 					cli.IntFlag{
 						Name:  "min, m",
-						Usage: "Minimal number of signatures",
+						Usage: "minimal number of signatures",
 					},
 				},
 			},
@@ -271,11 +271,11 @@ func NewCommands() []cli.Command {
 					wifFlag,
 					cli.StringFlag{
 						Name:  "name, n",
-						Usage: "Optional account name",
+						Usage: "optional account name",
 					},
 					flags.AddressFlag{
 						Name:  "contract, c",
-						Usage: "Contract hash or address",
+						Usage: "contract hash or address",
 					},
 				}, options.RPC...),
 			},
@@ -290,7 +290,7 @@ func NewCommands() []cli.Command {
 					txctx.ForceFlag,
 					flags.AddressFlag{
 						Name:  "address, a",
-						Usage: "Account address or hash in LE form to be removed",
+						Usage: "account address or hash in LE form to be removed",
 					},
 				},
 			},

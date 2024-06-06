@@ -32,7 +32,7 @@ func newValidatorCommands() []cli.Command {
 				txctx.AwaitFlag,
 				flags.AddressFlag{
 					Name:  "address, a",
-					Usage: "Address to register",
+					Usage: "address to register",
 				},
 			}, options.RPC...),
 		},

@@ -97,7 +97,7 @@ func TestAddressFlag_IsSet(t *testing.T) {
 func TestAddressFlag_String(t *testing.T) {
 	flag := AddressFlag{
 		Name:  "myFlag",
-		Usage: "Address to pass",
+		Usage: "address to pass",
 		Value: Address{},
 	}
 

@@ -72,7 +72,7 @@ const (
 var (
 	historicFlag = cli.IntFlag{
 		Name: historicFlagFullName,
-		Usage: "Height for historic script invocation (for MPT-enabled blockchain configuration with KeepOnlyLatestState setting disabled). " +
+		Usage: "height for historic script invocation (for MPT-enabled blockchain configuration with KeepOnlyLatestState setting disabled). " +
 			"Assuming that block N-th is specified as an argument, the historic invocation is based on the storage state of height N and fake currently-accepting block with index N+1.",
 	}
 	gasFlag = cli.Int64Flag{
@@ -81,28 +81,28 @@ var (
 	}
 	hashFlag = cli.StringFlag{
 		Name:  hashFlagFullName,
-		Usage: "Smart-contract hash in LE form or address",
+		Usage: "smart-contract hash in LE form or address",
 	}
 )
 
 var commands = []cli.Command{
 	{
 		Name:        "exit",
-		Usage:       "Exit the VM prompt",
+		Usage:       "exit the VM prompt",
 		UsageText:   "exit",
 		Description: "Exit the VM prompt.",
 		Action:      handleExit,
 	},
 	{
 		Name:        "ip",
-		Usage:       "Show current instruction",
+		Usage:       "show current instruction",
 		UsageText:   "ip",
 		Description: "Show current instruction.",
 		Action:      handleIP,
 	},
 	{
 		Name:      "break",
-		Usage:     "Place a breakpoint",
+		Usage:     "place a breakpoint",
 		UsageText: `break <ip>`,
 		Description: `<ip> is mandatory parameter.
 
@@ -112,7 +112,7 @@ Example:
 	},
 	{
 		Name:      "jump",
-		Usage:     "Jump to the specified instruction (absolute IP value)",
+		Usage:     "jump to the specified instruction (absolute IP value)",
 		UsageText: `jump <ip>`,
 		Description: `<ip> is mandatory parameter (absolute IP value).
 
@@ -122,42 +122,42 @@ Example:
 	},
 	{
 		Name:        "estack",
-		Usage:       "Show evaluation stack contents",
+		Usage:       "show evaluation stack contents",
 		UsageText:   "estack",
 		Description: "Show evaluation stack contents.",
 		Action:      handleXStack,
 	},
 	{
 		Name:        "istack",
-		Usage:       "Show invocation stack contents",
+		Usage:       "show invocation stack contents",
 		UsageText:   "istack",
 		Description: "Show invocation stack contents.",
 		Action:      handleXStack,
 	},
 	{
 		Name:        "sslot",
-		Usage:       "Show static slot contents",
+		Usage:       "show static slot contents",
 		UsageText:   "sslot",
 		Description: "Show static slot contents.",
 		Action:      handleSlots,
 	},
 	{
 		Name:        "lslot",
-		Usage:       "Show local slot contents",
+		Usage:       "show local slot contents",
 		UsageText:   "lslot",
 		Description: "Show local slot contents",
 		Action:      handleSlots,
 	},
 	{
 		Name:        "aslot",
-		Usage:       "Show arguments slot contents",
+		Usage:       "show arguments slot contents",
 		UsageText:   "aslot",
 		Description: "Show arguments slot contents.",
 		Action:      handleSlots,
 	},
 	{
 		Name:      "loadnef",
-		Usage:     "Load a NEF (possibly with a contract hash) into the VM optionally using provided scoped signers in the context",
+		Usage:     "load a NEF (possibly with a contract hash) into the VM optionally using provided scoped signers in the context",
 		UsageText: `loadnef [--historic <height>] [--gas <int>] [--hash <hash-or-address>] <file> [<manifest>] [-- <signer-with-scope>, ...]`,
 		Flags:     []cli.Flag{historicFlag, gasFlag, hashFlag},
 		Description: `<file> parameter is mandatory, <manifest> parameter (if omitted) will
@@ -172,7 +172,7 @@ Example:
 	},
 	{
 		Name:      "loadbase64",
-		Usage:     "Load a base64-encoded script string into the VM optionally attaching to it provided signers with scopes",
+		Usage:     "load a base64-encoded script string into the VM optionally attaching to it provided signers with scopes",
 		UsageText: `loadbase64 [--historic <height>] [--gas <int>] <string> [-- <signer-with-scope>, ...]`,
 		Flags:     []cli.Flag{historicFlag, gasFlag},
 		Description: `<string> is mandatory parameter.
@@ -185,7 +185,7 @@ Example:
 	},
 	{
 		Name:      "loadhex",
-		Usage:     "Load a hex-encoded script string into the VM optionally attaching to it provided signers with scopes",
+		Usage:     "load a hex-encoded script string into the VM optionally attaching to it provided signers with scopes",
 		UsageText: `loadhex [--historic <height>] [--gas <int>] <string> [-- <signer-with-scope>, ...]`,
 		Flags:     []cli.Flag{historicFlag, gasFlag},
 		Description: `<string> is mandatory parameter.
@@ -198,7 +198,7 @@ Example:
 	},
 	{
 		Name:      "loadgo",
-		Usage:     "Compile and load a Go file with the manifest into the VM optionally attaching to it provided signers with scopes and setting provided hash",
+		Usage:     "compile and load a Go file with the manifest into the VM optionally attaching to it provided signers with scopes and setting provided hash",
 		UsageText: `loadgo [--historic <height>] [--gas <int>] [--hash <hash-or-address>] <file> [-- <signer-with-scope>, ...]`,
 		Flags:     []cli.Flag{historicFlag, gasFlag, hashFlag},
 		Description: `<file> is mandatory parameter.
@@ -211,7 +211,7 @@ Example:
 	},
 	{
 		Name:      "loadtx",
-		Usage:     "Load transaction into the VM from chain or from parameter context file",
+		Usage:     "load transaction into the VM from chain or from parameter context file",
 		UsageText: `loadtx [--historic <height>] [--gas <int>] <file-or-hash>`,
 		Flags:     []cli.Flag{historicFlag, gasFlag},
 		Description: `Load transaction into the VM from chain or from parameter context file.
@@ -228,7 +228,7 @@ Example:
 	},
 	{
 		Name:      "loaddeployed",
-		Usage:     "Load deployed contract into the VM from chain optionally attaching to it provided signers with scopes",
+		Usage:     "load deployed contract into the VM from chain optionally attaching to it provided signers with scopes",
 		UsageText: `loaddeployed [--historic <height>] [--gas <int>] <hash-or-address-or-id>  [-- <signer-with-scope>, ...]`,
 		Flags:     []cli.Flag{historicFlag, gasFlag},
 		Description: `Load deployed contract into the VM from chain optionally attaching to it provided signers with scopes.
@@ -244,7 +244,7 @@ Example:
 	},
 	{
 		Name:        "reset",
-		Usage:       "Unload compiled script from the VM and reset context to proper (possibly, historic) state",
+		Usage:       "unload compiled script from the VM and reset context to proper (possibly, historic) state",
 		UsageText:   "reset",
 		Flags:       []cli.Flag{historicFlag},
 		Description: "Unload compiled script from the VM and reset context to proper (possibly, historic) state.",
@@ -252,7 +252,7 @@ Example:
 	},
 	{
 		Name:      "parse",
-		Usage:     "Parse provided argument and convert it into other possible formats",
+		Usage:     "parse provided argument and convert it into other possible formats",
 		UsageText: `parse <arg>`,
 		Description: `<arg> is an argument which is tried to be interpreted as an item of different types
 and converted to other formats. Strings are escaped and output in quotes.`,
@@ -260,7 +260,7 @@ and converted to other formats. Strings are escaped and output in quotes.`,
 	},
 	{
 		Name:      "run",
-		Usage:     "Usage Execute the current loaded script",
+		Usage:     "usage Execute the current loaded script",
 		UsageText: `run [<method> [<parameter>...]]`,
 		Description: `<method> is a contract method, specified in manifest. It can be '_' which will push
         parameters onto the stack and execute from the current offset.
@@ -275,14 +275,14 @@ Example:
 	},
 	{
 		Name:        "cont",
-		Usage:       "Continue execution of the current loaded script",
+		Usage:       "continue execution of the current loaded script",
 		UsageText:   "cont",
 		Description: "Continue execution of the current loaded script.",
 		Action:      handleCont,
 	},
 	{
 		Name:      "step",
-		Usage:     "Step (n) instruction in the program",
+		Usage:     "step (n) instruction in the program",
 		UsageText: `step [<n>]`,
 		Description: `<n> is optional parameter to specify number of instructions to run.
 
@@ -292,7 +292,7 @@ Example:
 	},
 	{
 		Name:      "stepinto",
-		Usage:     "Stepinto instruction to take in the debugger",
+		Usage:     "stepinto instruction to take in the debugger",
 		UsageText: "stepinto",
 		Description: `Stepinto instruction to take in the debugger.
 
@@ -302,7 +302,7 @@ Example:
 	},
 	{
 		Name:      "stepout",
-		Usage:     "Stepout instruction to take in the debugger",
+		Usage:     "stepout instruction to take in the debugger",
 		UsageText: "stepout",
 		Description: `Stepout instruction to take in the debugger.
 
@@ -312,7 +312,7 @@ Example:
 	},
 	{
 		Name:      "stepover",
-		Usage:     "Stepover instruction to take in the debugger",
+		Usage:     "stepover instruction to take in the debugger",
 		UsageText: "stepover",
 		Description: `Stepover instruction to take in the debugger.
 
@@ -322,26 +322,26 @@ Example:
 	},
 	{
 		Name:        "ops",
-		Usage:       "Dump opcodes of the current loaded program",
+		Usage:       "dump opcodes of the current loaded program",
 		UsageText:   "ops",
 		Description: "Dump opcodes of the current loaded program",
 		Action:      handleOps,
 	},
 	{
 		Name:        "events",
-		Usage:       "Dump events emitted by the current loaded program",
+		Usage:       "dump events emitted by the current loaded program",
 		UsageText:   "events",
 		Description: "Dump events emitted by the current loaded program",
 		Action:      handleEvents,
 	},
 	{
 		Name:      "env",
-		Usage:     "Dump state of the chain that is used for VM CLI invocations (use -v for verbose node configuration)",
+		Usage:     "dump state of the chain that is used for VM CLI invocations (use -v for verbose node configuration)",
 		UsageText: `env [-v]`,
 		Flags: []cli.Flag{
 			cli.BoolFlag{
 				Name:  verboseFlagFullName + ",v",
-				Usage: "Print the whole blockchain node configuration.",
+				Usage: "print the whole blockchain node configuration.",
 			},
 		},
 		Description: `Dump state of the chain that is used for VM CLI invocations (use -v for verbose node configuration).
@@ -352,16 +352,16 @@ Example:
 	},
 	{
 		Name:      "storage",
-		Usage:     "Dump storage of the contract with the specified hash, address or ID as is at the current stage of script invocation",
+		Usage:     "dump storage of the contract with the specified hash, address or ID as is at the current stage of script invocation",
 		UsageText: `storage <hash-or-address-or-id> [<prefix>] [--backwards] [--diff]`,
 		Flags: []cli.Flag{
 			cli.BoolFlag{
 				Name:  backwardsFlagFullName + ",b",
-				Usage: "Backwards traversal direction",
+				Usage: "backwards traversal direction",
 			},
 			cli.BoolFlag{
 				Name:  diffFlagFullName + ",d",
-				Usage: "Dump only those storage items that were added or changed during the current script invocation. Note that this call won't show removed storage items, use 'changes' command for that.",
+				Usage: "dump only those storage items that were added or changed during the current script invocation. Note that this call won't show removed storage items, use 'changes' command for that.",
 			},
 		},
 		Description: `Dump storage of the contract with the specified hash, address or ID as is at the current stage of script invocation.
@@ -378,7 +378,7 @@ Example:
 	},
 	{
 		Name:      "changes",
-		Usage:     "Dump storage changes as is at the current stage of loaded script invocation",
+		Usage:     "dump storage changes as is at the current stage of loaded script invocation",
 		UsageText: `changes [<hash-or-address-or-id> [<prefix>]]`,
 		Description: `Dump storage changes as is at the current stage of loaded script invocation.
 If no script is loaded or executed, then no changes are present.

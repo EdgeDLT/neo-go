@@ -78,7 +78,7 @@ func NewCommands() []cli.Command {
 	testInvokeScriptFlags := []cli.Flag{
 		cli.StringFlag{
 			Name:  "in, i",
-			Usage: "Input location of the .nef file that needs to be invoked",
+			Usage: "input location of the .nef file that needs to be invoked",
 		},
 		options.Historic,
 	}
@@ -98,11 +98,11 @@ func NewCommands() []cli.Command {
 	deployFlags := append(invokeFunctionFlags, []cli.Flag{
 		cli.StringFlag{
 			Name:  "in, i",
-			Usage: "Input file for the smart contract (*.nef)",
+			Usage: "input file for the smart contract (*.nef)",
 		},
 		cli.StringFlag{
 			Name:  "manifest, m",
-			Usage: "Manifest input file (*.manifest.json)",
+			Usage: "manifest input file (*.manifest.json)",
 		},
 	}...)
 	manifestAddGroupFlags := append([]cli.Flag{
@@ -143,27 +143,27 @@ func NewCommands() []cli.Command {
 				Flags: []cli.Flag{
 					cli.StringFlag{
 						Name:  "in, i",
-						Usage: "Input file for the smart contract to be compiled (*.go file or directory)",
+						Usage: "input file for the smart contract to be compiled (*.go file or directory)",
 					},
 					cli.StringFlag{
 						Name:  "out, o",
-						Usage: "Output of the compiled contract",
+						Usage: "output of the compiled contract",
 					},
 					cli.BoolFlag{
 						Name:  "verbose, v",
-						Usage: "Print out additional information after a compiling",
+						Usage: "print out additional information after a compiling",
 					},
 					cli.StringFlag{
 						Name:  "debug, d",
-						Usage: "Emit debug info in a separate file",
+						Usage: "emit debug info in a separate file",
 					},
 					cli.StringFlag{
 						Name:  "manifest, m",
-						Usage: "Emit contract manifest (*.manifest.json) file into separate file using configuration input file (*.yml)",
+						Usage: "emit contract manifest (*.manifest.json) file into separate file using configuration input file (*.yml)",
 					},
 					cli.StringFlag{
 						Name:  "config, c",
-						Usage: "Configuration input file (*.yml)",
+						Usage: "configuration input file (*.yml)",
 					},
 					cli.BoolFlag{
 						Name:  "no-standards",
@@ -239,7 +239,7 @@ func NewCommands() []cli.Command {
 			},
 			{
 				Name:      "testinvokescript",
-				Usage:     "Invoke compiled AVM code in NEF format on the blockchain (test mode, not creating a transaction for it)",
+				Usage:     "invoke compiled AVM code in NEF format on the blockchain (test mode, not creating a transaction for it)",
 				UsageText: "neo-go contract testinvokescript -r endpoint -i input.nef [--historic index/hash] [signers...]",
 				Description: `Executes given compiled AVM instructions in NEF format with the given set of
    signers not included sender by default. See testinvokefunction documentation 

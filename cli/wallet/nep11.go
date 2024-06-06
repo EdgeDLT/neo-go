@@ -26,7 +26,7 @@ func newNEP11Commands() []cli.Command {
 	maxIters := strconv.Itoa(config.DefaultMaxIteratorResultItems)
 	tokenAddressFlag := flags.AddressFlag{
 		Name:  "token",
-		Usage: "Token contract address or hash in LE",
+		Usage: "token contract address or hash in LE",
 	}
 	ownerAddressFlag := flags.AddressFlag{
 		Name:  "address",
