@@ -6,6 +6,7 @@ import (
 
 	"github.com/chzyer/readline"
 	"github.com/nspcc-dev/neo-go/cli/cmdargs"
+	"github.com/nspcc-dev/neo-go/cli/config"
 	"github.com/nspcc-dev/neo-go/cli/options"
 	"github.com/nspcc-dev/neo-go/pkg/core/storage/dbconfig"
 	"github.com/urfave/cli"
@@ -27,10 +28,13 @@ func startVMPrompt(ctx *cli.Context) error {
 	if err := cmdargs.EnsureNone(ctx); err != nil {
 		return err
 	}
-
-	cfg, err := options.GetConfigFromContext(ctx)
-	if err != nil {
-		return cli.NewExitError(err, 1)
+	var err error
+	cfg := config.VM
+	if ctx.String("config-file") != "" || ctx.String("config-path") != "" {
+		cfg, err = options.GetConfigFromContext(ctx)
+		if err != nil {
+			return cli.NewExitError(err, 1)
+		}
 	}
 	if ctx.NumFlags() == 0 {
 		cfg.ApplicationConfiguration.DBConfiguration.Type = dbconfig.InMemoryDB
