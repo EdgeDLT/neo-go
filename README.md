@@ -75,15 +75,28 @@ The resulting binary is `bin/neo-go.exe`.
 
 ## Running a node
 
-A node needs to connect to some network, either local one (usually referred to
-as `privnet`) or public (like `mainnet` or `testnet`). Network configuration
-is stored in a file and NeoGo allows you to store multiple files in one
-directory (`./config` by default) and easily switch between them using network
-flags.
+Before running a Neo node, you need to generate the necessary configuration files
+for the network you wish to connect to, such as a local network (`privnet`), or 
+a public network like `mainnet` or `testnet`. NeoGo stores network configuration 
+files in a directory (`./config` by default) and allows you to easily switch 
+between them using network flags.
 
-To start Neo node on a private network, use:
+### Initial Setup
 
+First, generate the configuration files for all available networks:
+
+```bash
+./bin/neo-go config generate --all
 ```
+
+This command will create configuration files for each network in 
+the `./config` directory. You need to run this step only once before the first run.
+
+### Starting the Node
+
+To start a Neo node on a private network, use:
+
+```bash
 ./bin/neo-go node
 ```
 

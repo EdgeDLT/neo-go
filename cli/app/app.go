@@ -5,6 +5,7 @@ import (
 	"os"
 	"runtime"
 
+	nodeconfig "github.com/nspcc-dev/neo-go/cli/config"
 	"github.com/nspcc-dev/neo-go/cli/query"
 	"github.com/nspcc-dev/neo-go/cli/server"
 	"github.com/nspcc-dev/neo-go/cli/smartcontract"
@@ -37,5 +38,6 @@ func New() *cli.App {
 	ctl.Commands = append(ctl.Commands, vm.NewCommands()...)
 	ctl.Commands = append(ctl.Commands, util.NewCommands()...)
 	ctl.Commands = append(ctl.Commands, query.NewCommands()...)
+	ctl.Commands = append(ctl.Commands, nodeconfig.NewCommands()...)
 	return ctl
 }

@@ -150,6 +150,38 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
 
+  check_config:
+    name: Check Configuration Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+
+      - name: Build NeoGo
+        run: |
+          echo "=> Building binary"
+          export GOGC=off
+          export CGO_ENABLED=0
+          VERSION=$(git describe --tags --always || echo "untagged")
+          COMMIT=$(git rev-parse HEAD)
+          BUILD_FLAGS="-X main.Version=$VERSION -X main.Commit=$COMMIT"
+          BINARY_PATH="./neo-go"
+          go build -trimpath -v -ldflags "$BUILD_FLAGS" -o ${BINARY_PATH} ./cli/main.go
+
+      - name: Generate Configurations
+        run: |
+          ./neo-go config generate --all
+
+      - name: Check for configuration changes
+        run: |
+          git diff --exit-code ./config || (echo "::error ::Configuration mismatch detected. Please update the configuration files:" && git diff ./config)
+
   tests:
     name: Run tests
     runs-on: ${{ matrix.os }}
